@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AbsenMVC.Model
 {
@@ -47,6 +48,21 @@ namespace AbsenMVC.Model
         public void UpdateMatkul(FilterDefinition<Matkul> filter, UpdateDefinition<Matkul> update)
         {
             _matkul.UpdateOne(filter, update);
+        }
+
+        public bool InsertNewMatkul(Matkul newMatkul)
+        {
+            var find = _matkul.Find(m => m.Nama == newMatkul.Nama).Any();
+            Debug.WriteLine(find);
+            if (find)
+            {
+                return false;
+            }
+            else
+            {
+                _matkul.InsertOne(newMatkul);
+                return true;
+            }
         }
     }
 }

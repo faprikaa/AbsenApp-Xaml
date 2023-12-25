@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:absenxaml.View"
         mc:Ignorable="d"
         Title="DataMatkul" Height="450" Width="800">
-        <DataGrid Name="dgMatkul" AutoGenerateColumns="False" Margin="0,0,400,4" >
+
+    <!-- Add a StackPanel or any other container for layout -->
+    <Grid>
+        <DataGrid x:Name="dgMatkul" AutoGenerateColumns="False" Margin="0,0,400,4" CellEditEnding="onCellValueChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="auto" />
                 <DataGridTextColumn Header="Nama" Binding="{Binding Nama}" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
-
-
-
-
+        <Button Click="btnOpenAddForm_click" Content="Tambah Matkul" Margin="486,192,214,181"/>
+    </Grid>
 </Window>

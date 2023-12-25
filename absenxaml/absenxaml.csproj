@@ -121,6 +121,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\AddMatkul.xaml.cs">
+      <DependentUpon>AddMatkul.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DataMatkul.xaml.cs">
       <DependentUpon>DataMatkul.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddMatkul.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DataMatkul.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
