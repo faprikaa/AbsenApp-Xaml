@@ -1,4 +1,4 @@
-﻿<Window x:Class="absenxaml.View.DataMatkul"
+﻿<Page x:Class="absenxaml.View.DataMatkul"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -21,4 +21,4 @@
         <Button Click="btnOpenAddForm_click" Content="Tambah Matkul" Margin="486,192,214,181"/>
         <Button Click="btnDelMk_click" Content="Hapus Matkul" Margin="625,192,75,181"/>
     </Grid>
-</Window>
+</Page>

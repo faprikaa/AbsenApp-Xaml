@@ -23,7 +23,7 @@ namespace absenxaml.View
     /// <summary>
     /// Interaction logic for DataMatkul.xaml
     /// </summary>
-    public partial class DataMatkul : Window
+    public partial class DataMatkul : Page
     {
         private string oldValue = "";
         public List<Matkul> matkuls { get; set; }
