@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -55,6 +56,28 @@ namespace absenxaml.View
             AddMatkul addMatkul = new AddMatkul(matkulManager, this);
             addMatkul.Show();
         }
+        
+        public void btnDelMk_click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = dgMatkul.SelectedItem as Matkul;
+            var selectedItems = dgMatkul.SelectedItems as List<Matkul>;   
+            if (selectedItem == null)
+            {
+                MessageBox.Show("Please choose one matkul", "tes");
+            } else
+            {
+                 var d = MessageBox.Show("hapus matkul" + selectedItem.Nama + " ?", "tes", MessageBoxButton.OKCancel);
+                if (d == MessageBoxResult.OK)
+                {
+                    matkulManager.DeleteMatkul(selectedItem.Id);
+                    refreshDataGrid();
+                }
+
+            }
+
+        }
+
+
 
         public void refreshDataGrid()
         {

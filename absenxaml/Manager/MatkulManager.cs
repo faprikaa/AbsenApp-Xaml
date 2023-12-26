@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -63,6 +64,12 @@ namespace AbsenMVC.Model
                 _matkul.InsertOne(newMatkul);
                 return true;
             }
+        }
+
+        public void DeleteMatkul(ObjectId objId)
+        {
+            var filter = Builders<Matkul>.Filter.Eq(_ => _.Id, objId);
+            _matkul.DeleteOne(filter);
         }
     }
 }
