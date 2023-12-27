@@ -14,11 +14,8 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
-                <MenuItem Header="_Edit">
-                    <MenuItem Command="Cut" />
-                    <MenuItem Command="Copy" />
-                    <MenuItem Command="Paste" />
-                </MenuItem>
+                <MenuItem Header="_Matkul" Click="matkulHeader_Click"/>
+                <MenuItem Header="_User" Click="userHeader_Click"/>
             </Menu>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>

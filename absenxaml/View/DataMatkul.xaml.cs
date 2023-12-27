@@ -85,6 +85,6 @@ namespace absenxaml.View
             matkuls = matkulManager.getMatkul().AsQueryable().ToList<Matkul>();
             dgMatkul.ItemsSource = matkuls;
 
-        }
+        }       
     }
 }

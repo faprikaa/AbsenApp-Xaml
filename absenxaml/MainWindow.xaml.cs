@@ -27,5 +27,17 @@ namespace absenxaml
             MainFrame.Navigate(new DataMatkul());
         }
 
+        public void userHeader_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new DataUser());
+        }
+        
+        public void matkulHeader_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new DataMatkul());
+        }
+
+
+
     }
 }

@@ -16,5 +16,10 @@ namespace AbsenMVC.Model
             var matkuls  = db.GetCollection<Matkul>("matkul");
             return matkuls;
         }
+        public static IMongoCollection<User> getTbUser()
+        {
+            var users = db.GetCollection<User>("user");
+            return users;
+        }
     }
 }
