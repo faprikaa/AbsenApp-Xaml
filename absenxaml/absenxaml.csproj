@@ -137,6 +137,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\DataMatkulUserWindow.xaml.cs">
+      <DependentUpon>DataMatkulUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DataUser.xaml.cs">
       <DependentUpon>DataUser.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DataMatkulUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DataUser.xaml">
       <SubType>Designer</SubType>

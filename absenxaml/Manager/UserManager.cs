@@ -76,5 +76,11 @@ namespace absenxaml.Manager
             var filter = Builders<User>.Filter.Eq(_ => _.Id, objId);
             _users.DeleteOne(filter);
         }
+
+        public List<BsonDocument> GetMatkulByUserId(ObjectId userId)
+        {
+            var query = _users.Aggregate().Match(u => u.Id == userId).Lookup("matkul",  "matkul.matkulId", "_id", "dataMatkul").ToList();
+            return query;
+        }
     }
 }

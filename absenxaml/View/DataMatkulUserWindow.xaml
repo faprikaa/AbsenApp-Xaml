@@ -1,0 +1,22 @@
+﻿<Window x:Class="absenxaml.View.DataMatkulUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:absenxaml.View"
+        mc:Ignorable="d"
+        Title="DataMatkulUserWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgMatkulUser" AutoGenerateColumns="False" Margin="0,0,400,4"
+ CanUserAddRows="True"
+                  CanUserDeleteRows="True" CanUserSortColumns="True"
+>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding id}" IsReadOnly="True" Width="auto" />
+                <DataGridTextColumn Header="Nama" Binding="{Binding nama}" Width="auto" />
+                <DataGridTextColumn Header="Hari" Binding="{Binding hari}" Width="auto" />
+                <DataGridTextColumn Header="Jam" Binding="{Binding jam}" Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

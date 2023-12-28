@@ -3,6 +3,7 @@ using absenxaml.Manager;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,8 @@ namespace absenxaml.View
         public void refreshDataGrid()
         {
             dgUser.ItemsSource = null;
-            dgUser.ItemsSource = userManager.getUser().AsQueryable().ToList<User>(); ;
+            dgUser.ItemsSource = userManager.getUser().AsQueryable().ToList<User>();
+            Debug.WriteLine(userManager.getUser().AsQueryable().ToList<User>());
             cbRole.ItemsSource = new List<String> { "admin", "mhs", "dosen" };
         }
 
@@ -121,6 +123,13 @@ namespace absenxaml.View
             }
 
 
+        }
+
+        private void btnSeeMatkul_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = dgUser.SelectedItem as User;
+            var wind = new DataMatkulUserWindow(selectedItem.Id);
+            wind.Show();
         }
     }
 }

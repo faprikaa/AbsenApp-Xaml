@@ -63,5 +63,6 @@ namespace AbsenMVC.Model
             var filter = Builders<Matkul>.Filter.Eq(_ => _.Id, objId);
             _matkul.DeleteOne(filter);
         }
+
     }
 }
