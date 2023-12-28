@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -17,11 +18,11 @@ namespace AbsenMVC.Model
 
         public IMongoCollection<Matkul> getMatkul()
         {
-            if (_matkul == null)
+            var c = _matkul.CountDocuments(FilterDefinition<Matkul>.Empty);
+            if (c < 1)
             {
                 insetDataIfNull();
             }
-            insetDataIfNull();
             return _matkul;
         }
 
@@ -33,17 +34,8 @@ namespace AbsenMVC.Model
                 new Matkul("PSC"),
                 new Matkul("PDE"),
             };
-            Matkul matkul = new Matkul("RPL");
-            var filter = Builders<Matkul>.Filter.Eq(m => m.Nama, "RPL");
-            var query = Builders<Matkul>.Update.Set(r => r.Nama, "RPL");
-            try
-            {
-                _matkul.UpdateOne(filter, query, new UpdateOptions { IsUpsert = true });
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _matkul.InsertMany(matkuls);
+
         }
 
         public void UpdateMatkul(FilterDefinition<Matkul> filter, UpdateDefinition<Matkul> update)
