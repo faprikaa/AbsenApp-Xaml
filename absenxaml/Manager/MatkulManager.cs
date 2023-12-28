@@ -30,9 +30,9 @@ namespace AbsenMVC.Model
         {
             List<Matkul> matkuls = new List<Matkul>
             {
-                new Matkul("RPL"),
-                new Matkul("PSC"),
-                new Matkul("PDE"),
+                new Matkul("RPL", ObjectId.Parse("657b08352e39af52b5c8db53")),
+                new Matkul("PSC", ObjectId.Parse("6579b32c973b0428dc6fbb98")),
+                new Matkul("PDE", ObjectId.Parse("6579b355c67f3103b02078c7")),
             };
             _matkul.InsertMany(matkuls);
 

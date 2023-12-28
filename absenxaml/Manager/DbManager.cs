@@ -60,12 +60,10 @@ namespace AbsenMVC.Model
 
         private static void DeleteAllDocument()
         {
-            var mat = "matkul";
-            var m = db.GetCollection<Matkul>(mat);
+            var m = db.GetCollection<Matkul>("matkul");
             m.DeleteMany(FilterDefinition<Matkul>.Empty);
             
-            var us = "user";
-            var u = db.GetCollection<User>(us);
+            var u = db.GetCollection<User>("user");
             u.DeleteMany(FilterDefinition<User>.Empty);
 
         }

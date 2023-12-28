@@ -111,10 +111,15 @@ namespace absenxaml.View
                 MessageBox.Show("Pilih salah satu user", "Info", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            userManager.DeleteUser(selectedItem.Id);
-            clear();
-            refreshDataGrid();
-            MessageBox.Show("Berhasil hapus data user", "Sukses", MessageBoxButton.OK, MessageBoxImage.Information);
+            var d = MessageBox.Show("hapus user " + selectedItem.Nama + " ?", "Konfirmasi", MessageBoxButton.OKCancel);
+            if (d == MessageBoxResult.OK)
+            {
+                userManager.DeleteUser(selectedItem.Id);
+                clear();
+                refreshDataGrid();
+                MessageBox.Show("Berhasil hapus data user", "Sukses", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
 
         }
     }

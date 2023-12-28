@@ -16,8 +16,9 @@ namespace AbsenMVC.Model
         [BsonElement("nama")]
         public string Nama { get; set; }
 
-        public Matkul(string nama)
+        public Matkul(string nama, ObjectId id = default(ObjectId))
         {
+            this.Id = id;
             this.Nama = nama;
         }
     }

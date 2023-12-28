@@ -66,7 +66,7 @@ namespace absenxaml.View
                 MessageBox.Show("Please choose one matkul", "tes");
             } else
             {
-                 var d = MessageBox.Show("hapus matkul" + selectedItem.Nama + " ?", "tes", MessageBoxButton.OKCancel);
+                 var d = MessageBox.Show("hapus matkul " + selectedItem.Nama + " ?", "Konfirmasi", MessageBoxButton.OKCancel);
                 if (d == MessageBoxResult.OK)
                 {
                     matkulManager.DeleteMatkul(selectedItem.Id);

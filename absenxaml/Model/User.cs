@@ -10,15 +10,15 @@ namespace AbsenMVC.Model
 {
     public class MatkulItem
     {
-        public MatkulItem(string namaMatkul, string hari, string jam)
+        public MatkulItem(ObjectId matkulId, string hari, string jam)
         {
-            NamaMatkul = namaMatkul;
+            MatkulId = matkulId;
             Hari = hari;
             Jam = jam;
         }
 
-        [BsonElement("namaMatkul")]
-        public string NamaMatkul { get; set; }
+        [BsonElement("matkulId"), BsonIgnoreIfNull]
+        public ObjectId MatkulId { get; set; }
         
         [BsonElement("hari")]
         public string Hari { get; set; }
