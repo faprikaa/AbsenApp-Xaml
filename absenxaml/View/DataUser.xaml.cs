@@ -39,7 +39,7 @@ namespace absenxaml.View
             dgUser.ItemsSource = null;
             dgUser.ItemsSource = userManager.getUser().AsQueryable().ToList<User>();
             Debug.WriteLine(userManager.getUser().AsQueryable().ToList<User>());
-            cbRole.ItemsSource = new List<String> { "admin", "mhs", "dosen" };
+            cbRole.ItemsSource = new List<String> { "admin", "mahasiswa", "dosen" };
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

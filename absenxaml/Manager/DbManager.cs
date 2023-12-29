@@ -25,6 +25,7 @@ namespace AbsenMVC.Model
                 db = client.GetDatabase("absen");
                 DeleteAllDocument();
             }
+            DeleteAllDocument();
         }
 
         public static IMongoCollection<Matkul> getTbMatkul()

@@ -10,21 +10,24 @@ namespace AbsenMVC.Model
 {
     public class MatkulItem
     {
-        public MatkulItem(ObjectId matkulId, string hari, string jam)
+        public MatkulItem(ObjectId matkulId, string hari, string jamMulai, string jamSelesai)
         {
             MatkulId = matkulId;
             Hari = hari;
-            Jam = jam;
+            JamMulai = jamMulai;
+            JamSelesai = jamSelesai;
         }
 
-        [BsonElement("matkulId"), BsonIgnoreIfNull]
+        [BsonElement("matkul_id"), BsonIgnoreIfNull]
         public ObjectId MatkulId { get; set; }
         
         [BsonElement("hari")]
         public string Hari { get; set; }
         
-        [BsonElement("jam")]
-        public string Jam { get; set; }
+        [BsonElement("jam_mulai")]
+        public string JamMulai { get; set; }
+        [BsonElement("jam_selesai")]
+        public string JamSelesai { get; set; }
 
     }
 
@@ -42,7 +45,7 @@ namespace AbsenMVC.Model
         [BsonElement("matkul")]
         public List<MatkulItem> Matkul { get; set; }
 
-        public User(string nama, string role = "mhs", List<MatkulItem> matkul = null)
+        public User(string nama, string role = "mahasiswa", List<MatkulItem> matkul = null)
         {
             this.Nama = nama;
             this.Role = role;
