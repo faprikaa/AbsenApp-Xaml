@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using absenxaml.Model;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,19 @@ namespace AbsenMVC.Model
             var users2 = db.GetCollection<User>(cltName);
             return users2;
         }
+        
+        public static IMongoCollection<MatkulUser> getTbMatkulUser()
+        {
+            var cltName = "matkul_user";
+            if (CheckCollection(cltName))
+            {
+                var matkulUser = db.GetCollection<MatkulUser>(cltName);
+                return matkulUser;
+            }
+            db.CreateCollection(cltName);
+            var matkulUser2 = db.GetCollection<MatkulUser>(cltName);
+            return matkulUser2;
+        }
         private static bool CheckCollection(string collectionName)
         {
             var filter = new BsonDocument("name", collectionName);
@@ -65,6 +79,9 @@ namespace AbsenMVC.Model
             
             var u = db.GetCollection<User>("user");
             u.DeleteMany(FilterDefinition<User>.Empty);
+            
+            var mu = db.GetCollection<MatkulUser>("matkul_user");
+            mu.DeleteMany(FilterDefinition<MatkulUser>.Empty);
 
         }
     }

@@ -38,7 +38,6 @@ namespace absenxaml.View
         {
             dgUser.ItemsSource = null;
             dgUser.ItemsSource = userManager.getUser().AsQueryable().ToList<User>();
-            Debug.WriteLine(userManager.getUser().AsQueryable().ToList<User>());
             cbRole.ItemsSource = new List<String> { "admin", "mahasiswa", "dosen" };
         }
 
@@ -121,8 +120,6 @@ namespace absenxaml.View
                 refreshDataGrid();
                 MessageBox.Show("Berhasil hapus data user", "Sukses", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-
-
         }
 
         private void btnSeeMatkul_Click(object sender, RoutedEventArgs e)

@@ -46,7 +46,6 @@ namespace AbsenMVC.Model
         public bool InsertNewMatkul(Matkul newMatkul)
         {
             var find = _matkul.Find(m => m.Nama == newMatkul.Nama).Any();
-            Debug.WriteLine(find);
             if (find)
             {
                 return false;
@@ -70,5 +69,6 @@ namespace AbsenMVC.Model
             var result = _matkul.Find(filter).FirstOrDefault();
             return result;
         }
+
     }
 }

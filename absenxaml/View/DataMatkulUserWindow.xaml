@@ -10,24 +10,23 @@
         Title="DataMatkulUserWindow" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="dgMatkulUser" AutoGenerateColumns="False" Margin="0,0,400,4"
- CanUserAddRows="True" IsReadOnly="True"
+ CanUserAddRows="True" IsReadOnly="True" RowHeight="25"
                   CanUserDeleteRows="True" CanUserSortColumns="True" SelectionChanged="dgMatkulUser_SelectionChanged"
 >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding Id}" Width="auto" />
                 <DataGridTextColumn Header="Nama" Binding="{Binding Nama}" Width="auto" />
                 <DataGridTextColumn Header="Hari" Binding="{Binding Hari}" Width="auto" />
-                <DataGridTextColumn Header="Jam" Binding="{Binding JamMulai}" Width="auto" />
-                <DataGridTextColumn Header="Jam" Binding="{Binding JamSelesai}" Width="auto" />
+                <DataGridTextColumn Header="Jam Mulai" Binding="{Binding JamMulai}" Width="auto" />
+                <DataGridTextColumn Header="Jam Selesai" Binding="{Binding JamSelesai}" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Jam Mulai" HorizontalAlignment="Right" Margin="0,0,157,290" VerticalAlignment="Bottom" FontSize="16"/>
         <Label Content="Hari" HorizontalAlignment="Right" Margin="0,0,337,290" VerticalAlignment="Bottom" FontSize="16"/>
         <Button x:Name="btnAdd" Content="Tambah " HorizontalAlignment="Right" Margin="0,0,249,169" VerticalAlignment="Bottom" Height="50" Width="100" Click="btnAdd_Click"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Right" Margin="0,0,97,167" VerticalAlignment="Bottom" Height="50" Width="100"/>
-        <Button x:Name="btnHapus" Content="Hapus" HorizontalAlignment="Right" Margin="0,0,249,80" VerticalAlignment="Bottom" Height="50" Width="100"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Right" Margin="0,0,97,167" VerticalAlignment="Bottom" Height="50" Width="100" Click="btnUpdate_Click"/>
+        <Button x:Name="btnHapus" Content="Hapus" HorizontalAlignment="Right" Margin="0,0,249,80" VerticalAlignment="Bottom" Height="50" Width="100" Click="btnHapus_Click"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Right" Margin="0,0,97,80" VerticalAlignment="Bottom" Height="50" Width="100" Click="btnClear_Click"/>
-        <ComboBox x:Name="cbMatkul" HorizontalAlignment="Left" Margin="523,57,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.488,-0.463" FontSize="16"/>
+        <ComboBox x:Name="cbMatkul"  DisplayMemberPath="Nama" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="523,57,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.488,-0.463" FontSize="16"/>
         <Label Content="Matkul" HorizontalAlignment="Left" Margin="523,26,0,0" VerticalAlignment="Top" FontSize="16"/>
         <xctk:TimePicker x:Name="tpJamMulai" Margin="0,0,139,241" Height="49" Width="100" IsManipulationEnabled="True" FontSize="16" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
         <Label Content="Jam Selesai" HorizontalAlignment="Right" Margin="0,0,30,290" VerticalAlignment="Bottom" FontSize="16"/>

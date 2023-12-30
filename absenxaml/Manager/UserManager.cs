@@ -2,12 +2,14 @@
 using Amazon.Runtime.Documents;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace absenxaml.Manager
 {
@@ -36,34 +38,19 @@ namespace absenxaml.Manager
         {
             List<User> users = new List<User>
             {
-                new User("Anton", "mahasiswa", new List<MatkulItem>{
-                    new MatkulItem(ObjectId.Parse("657b08352e39af52b5c8db53"), "Senin", "07:00", "08:00"), 
-                    new MatkulItem(ObjectId.Parse("6579b32c973b0428dc6fbb98"), "Selasa", "09.00", "10:00") 
-                }),
-                new User("Bayu", "mahasiswa", new List<MatkulItem>{
-                    new MatkulItem(ObjectId.Parse("657b08352e39af52b5c8db53"), "Senin", "07.00", "08:00"),
-                    new MatkulItem(ObjectId.Parse("6579b32c973b0428dc6fbb98"), "Selasa", "09.00", "10:00"),
-                    new MatkulItem(ObjectId.Parse("6579b355c67f3103b02078c7"), "Rabu", "09.00", "10:00") 
-                }),
-                new User("Caca", "mahasiswa", new List<MatkulItem>{
-                    new MatkulItem(ObjectId.Parse("657b08352e39af52b5c8db53"), "Senin", "07.00", "08:00"),
-                    new MatkulItem(ObjectId.Parse("6579b32c973b0428dc6fbb98"), "Selasa", "09.00", "10:00") 
-                }),
-                new User("Pak Dustin", "dosen", new List<MatkulItem>{
-                    new MatkulItem(ObjectId.Parse("657b08352e39af52b5c8db53"), "Senin", "07.00", "08:00"),
-                    new MatkulItem(ObjectId.Parse("6579b32c973b0428dc6fbb98"), "Selasa", "09.00", "10:00") 
-                }),
-                new User("Bu Enoki", "dosen", new List<MatkulItem>{
-                    new MatkulItem(ObjectId.Parse("6579b355c67f3103b02078c7"), "Rabu", "09.00", "10:00") 
-                }),
-                new User("Mas Fatin", "admin", null),
+                new User( "Anton", "mahasiswa",ObjectId.Parse("658fa5f7a358110c2d0d6ca4") ),
+                new User("Bayu", "mahasiswa", ObjectId.Parse("658fa5f7a358110c2d0d6ca5")),
+                new User("Caca", "mahasiswa", ObjectId.Parse("658fa5f7a358110c2d0d6ca6")),
+                new User("Pak Dustin", "dosen", ObjectId.Parse("658fa5f7a358110c2d0d6ca7")),
+                new User("Bu Enoki", "dosen", ObjectId.Parse("658fa5f7a358110c2d0d6ca8")),
+                new User("Mas Fatin", "admin", ObjectId.Parse("658fa5f7a358110c2d0d6ca9")),
             };
             _users.InsertMany(users);
         }
 
         public void InsertNewUser(User user)
         {
-                _users.InsertOne(user);
+            _users.InsertOne(user);
         }
 
         public void UpdateUser(FilterDefinition<User> filter, UpdateDefinition<User> update)
@@ -77,17 +64,9 @@ namespace absenxaml.Manager
             _users.DeleteOne(filter);
         }
 
-        public List<BsonDocument> GetMatkulByUserId(ObjectId userId)
+        public User GetUserById(ObjectId id)
         {
-            var query = _users.Aggregate().Match(u => u.Id == userId).Lookup("matkul",  "matkul.matkul_id", "_id", "dataMatkul").ToList();
-            return query;
-        }
-
-        public void InsertOneMatkulToUser(ObjectId userId, MatkulItem matkulItem)
-        {
-            var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
-            var query = Builders<User>.Update.Push<MatkulItem>(u => u.Matkul, matkulItem);
-            _users.FindOneAndUpdate(filter, query);
+            return _users.Find(u => u.Id == id).FirstOrDefault();
         }
     }
 }

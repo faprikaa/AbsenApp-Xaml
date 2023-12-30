@@ -1,5 +1,6 @@
 ﻿using AbsenMVC.Model;
 using absenxaml.Manager;
+using absenxaml.Model;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
@@ -19,6 +20,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.Primitives;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace absenxaml.View
 {
@@ -28,7 +31,7 @@ namespace absenxaml.View
     public partial class DataMatkulUserWindow : Window
     {
         private UserManager userManager = new UserManager();
-        private ObjectId userId;
+        private MatkulUserManager matkulUserManager;
         private dynamic listMatkulUser;
         private MatkulManager matkulManager = new MatkulManager();
         private User userData;
@@ -36,20 +39,15 @@ namespace absenxaml.View
         public DataMatkulUserWindow(ObjectId selectedUserId)
         {
             InitializeComponent();
-            this.userId = selectedUserId;
+            matkulUserManager = new MatkulUserManager();
+            SetUpView(selectedUserId);
             refreshDataGrid();
-            SetUpView();
         }
 
-        private void SetUpView()
+        private void SetUpView(ObjectId selectedUserId)
         {
-            List<String> list = new List<String>();
-            List<Matkul> listMatkul = matkulManager.getMatkul().AsQueryable().ToList();
-            foreach (var item in listMatkul)
-            {
-                list.Add(item.Nama);
-            }
-            cbMatkul.ItemsSource = list;
+            cbMatkul.ItemsSource = matkulManager.getMatkul().AsQueryable().ToList();
+            userData = userManager.GetUserById(selectedUserId);
             this.Title = "Data Matkul untuk " + userData.Nama;
             cbHari.ItemsSource = Utils.GetListHari();
         }
@@ -57,55 +55,52 @@ namespace absenxaml.View
         private void refreshDataGrid()
         {
             dgMatkulUser.ItemsSource = null;
-
-            List<BsonDocument> x = userManager.GetMatkulByUserId(userId);
-            var dataMatkul = x.First()["dataMatkul"];
-            x.First().Remove("dataMatkul");
-
-            userData = BsonSerializer.Deserialize<User>(x.First());
-            listMatkulUser = new List<dynamic>();
-            var i = 0;
-            foreach (var item in dataMatkul.AsBsonArray)
-            {
-                var y = BsonSerializer.Deserialize<Matkul>(item.ToBsonDocument());
-
+            List<dynamic> listMatkulUser = new List<dynamic>();
+            List<BsonDocument> listDataRaw = matkulUserManager.getMatkulUserByUserId(userData.Id);
+            foreach (dynamic dataRaw in listDataRaw) {
+                var dataMatkul = dataRaw["DataMatkul"];
+                dataRaw.Remove("DataMatkul");
+                var matkulUser = BsonSerializer.Deserialize<MatkulUser>(dataRaw);
+                var matkul = BsonSerializer.Deserialize<Matkul>(dataMatkul);
                 listMatkulUser.Add(new
                 {
-                    Id = y.Id.ToString(),
-                    Nama = y.Nama,
-                    JamMulai = userData.Matkul[i].JamMulai,
-                    JamSelesai = userData.Matkul[i].JamSelesai,
-                    Hari = userData.Matkul[i].Hari
+                    MatkulId = matkul.Id.ToString(),
+                    MatkulUserId = matkulUser.Id.ToString(),
+                    Nama = matkul.Nama,
+                    JamMulai = matkulUser.JamMulai,
+                    JamSelesai = matkulUser.JamSelesai,
+                    Hari = matkulUser.Hari
                 });
-                i++;
+
+
             }
-
-
             dgMatkulUser.ItemsSource = listMatkulUser;
         }
 
         private void dgMatkulUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dynamic selectedItem = dgMatkulUser.SelectedItem as dynamic;
+            Debug.WriteLine(dgMatkulUser.SelectedItem);
+
             if (selectedItem == null)
             {
                 return;
             }
+
             cbHari.SelectedItem = selectedItem.Hari;
             tpJamMulai.Text = selectedItem.JamMulai;
             tpJamSelesai.Text = selectedItem.JamSelesai;
-            cbMatkul.SelectedItem = selectedItem.Nama;
+            cbMatkul.SelectedValue = ObjectId.Parse( selectedItem.MatkulId);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var namaMk = cbMatkul.SelectedItem.ToString();
+            var mkId = cbMatkul.SelectedValue.ToString();
             var hari = cbHari.SelectedItem.ToString();
             var jamMulai = tpJamMulai.Text;
             var jamSelesai = tpJamSelesai.Text;
-            Matkul matkul = matkulManager.GetMatkulByName(namaMk);
-            MatkulItem matkulItem = new MatkulItem(matkul.Id, hari, jamMulai, jamSelesai);
-            userManager.InsertOneMatkulToUser(userData.Id, matkulItem);
+            MatkulUser matkulUser = new MatkulUser(ObjectId.Parse(mkId), userData.Id,hari, jamMulai, jamSelesai);
+            matkulUserManager.InsertNewMatkulUser(matkulUser);
             MessageBox.Show("Sukses menambah data matkul!", "Sukses", MessageBoxButton.OK, MessageBoxImage.Hand);
             refreshDataGrid();
         }
@@ -115,8 +110,43 @@ namespace absenxaml.View
             dgMatkulUser.SelectedItem = null;
             cbHari.SelectedItem = null;
             cbMatkul.SelectedItem = null;
-            tpJamMulai.Text = null; 
+            tpJamMulai.Text = null;
             tpJamSelesai.Text = null;
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedOption = dgMatkulUser.SelectedItem as dynamic;
+            if (selectedOption == null)
+            {
+                Utils.ShowMBWarning("Harap pilih salah satu item");
+            }
+            var mkId = cbMatkul.SelectedValue;
+            var hari = cbHari.SelectedItem.ToString();
+            var jamMulai = tpJamMulai.Text;
+            var jamSelesai = tpJamSelesai.Text;
+            MatkulUser newMatkuluser = new MatkulUser(
+                ObjectId.Parse(mkId.ToString()),
+                userData.Id,
+                hari,
+                jamMulai,
+                jamSelesai
+            );
+            matkulUserManager.UpdateById(ObjectId.Parse(selectedOption.MatkulUserId), newMatkuluser );
+            Utils.ShowMBInfo("Berhasil update data !");
+            refreshDataGrid();
+
+        }
+
+        private void btnHapus_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedOption = dgMatkulUser.SelectedItem as dynamic;
+            var mb = MessageBox.Show("Anda yakin menghapus data ini?", "Kofirmasi", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (mb == MessageBoxResult.OK) { 
+                matkulUserManager.DeleteById(ObjectId.Parse(selectedOption.MatkulUserId));
+            }
+            refreshDataGrid();
+            btnClear_Click(sender, e);  
         }
     }
 }
