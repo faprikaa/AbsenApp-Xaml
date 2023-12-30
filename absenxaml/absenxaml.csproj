@@ -152,6 +152,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Manager\Utils.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="View\AddMatkul.xaml.cs">
       <DependentUpon>AddMatkul.xaml</DependentUpon>

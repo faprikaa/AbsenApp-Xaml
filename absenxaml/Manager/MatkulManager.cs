@@ -64,5 +64,11 @@ namespace AbsenMVC.Model
             _matkul.DeleteOne(filter);
         }
 
+        public Matkul GetMatkulByName(string name)
+        {
+            var filter = Builders<Matkul>.Filter.Eq(m => m.Nama, name);
+            var result = _matkul.Find(filter).FirstOrDefault();
+            return result;
+        }
     }
 }

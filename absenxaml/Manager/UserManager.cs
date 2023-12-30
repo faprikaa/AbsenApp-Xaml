@@ -82,5 +82,12 @@ namespace absenxaml.Manager
             var query = _users.Aggregate().Match(u => u.Id == userId).Lookup("matkul",  "matkul.matkul_id", "_id", "dataMatkul").ToList();
             return query;
         }
+
+        public void InsertOneMatkulToUser(ObjectId userId, MatkulItem matkulItem)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Id, userId);
+            var query = Builders<User>.Update.Push<MatkulItem>(u => u.Matkul, matkulItem);
+            _users.FindOneAndUpdate(filter, query);
+        }
     }
 }

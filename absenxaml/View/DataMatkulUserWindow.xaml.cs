@@ -29,8 +29,9 @@ namespace absenxaml.View
     {
         private UserManager userManager = new UserManager();
         private ObjectId userId;
-        private dynamic listMatkulUser = new List<dynamic>();
+        private dynamic listMatkulUser;
         private MatkulManager matkulManager = new MatkulManager();
+        private User userData;
 
         public DataMatkulUserWindow(ObjectId selectedUserId)
         {
@@ -43,12 +44,14 @@ namespace absenxaml.View
         private void SetUpView()
         {
             List<String> list = new List<String>();
-            List<Matkul> listMatkul= matkulManager.getMatkul().AsQueryable().ToList();
+            List<Matkul> listMatkul = matkulManager.getMatkul().AsQueryable().ToList();
             foreach (var item in listMatkul)
             {
                 list.Add(item.Nama);
             }
             cbMatkul.ItemsSource = list;
+            this.Title = "Data Matkul untuk " + userData.Nama;
+            cbHari.ItemsSource = Utils.GetListHari();
         }
 
         private void refreshDataGrid()
@@ -59,19 +62,21 @@ namespace absenxaml.View
             var dataMatkul = x.First()["dataMatkul"];
             x.First().Remove("dataMatkul");
 
-            User userData = BsonSerializer.Deserialize<User>(x.First());
-            this.Title = "Data Matkul untuk " + userData.Nama;
-
+            userData = BsonSerializer.Deserialize<User>(x.First());
+            listMatkulUser = new List<dynamic>();
             var i = 0;
             foreach (var item in dataMatkul.AsBsonArray)
             {
                 var y = BsonSerializer.Deserialize<Matkul>(item.ToBsonDocument());
 
-                listMatkulUser.Add(new { Id = y.Id.ToString(), 
-                    Nama = y.Nama, 
-                    JamMulai = userData.Matkul[i].JamMulai, 
-                    JamSelesai = userData.Matkul[i].JamSelesai, 
-                    Hari = userData.Matkul[i].Hari });
+                listMatkulUser.Add(new
+                {
+                    Id = y.Id.ToString(),
+                    Nama = y.Nama,
+                    JamMulai = userData.Matkul[i].JamMulai,
+                    JamSelesai = userData.Matkul[i].JamSelesai,
+                    Hari = userData.Matkul[i].Hari
+                });
                 i++;
             }
 
@@ -82,7 +87,11 @@ namespace absenxaml.View
         private void dgMatkulUser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             dynamic selectedItem = dgMatkulUser.SelectedItem as dynamic;
-            tbHari.Text = selectedItem.Hari;
+            if (selectedItem == null)
+            {
+                return;
+            }
+            cbHari.SelectedItem = selectedItem.Hari;
             tpJamMulai.Text = selectedItem.JamMulai;
             tpJamSelesai.Text = selectedItem.JamSelesai;
             cbMatkul.SelectedItem = selectedItem.Nama;
@@ -90,7 +99,24 @@ namespace absenxaml.View
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            var namaMk = cbMatkul.SelectedItem.ToString();
+            var hari = cbHari.SelectedItem.ToString();
+            var jamMulai = tpJamMulai.Text;
+            var jamSelesai = tpJamSelesai.Text;
+            Matkul matkul = matkulManager.GetMatkulByName(namaMk);
+            MatkulItem matkulItem = new MatkulItem(matkul.Id, hari, jamMulai, jamSelesai);
+            userManager.InsertOneMatkulToUser(userData.Id, matkulItem);
+            MessageBox.Show("Sukses menambah data matkul!", "Sukses", MessageBoxButton.OK, MessageBoxImage.Hand);
+            refreshDataGrid();
+        }
 
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            dgMatkulUser.SelectedItem = null;
+            cbHari.SelectedItem = null;
+            cbMatkul.SelectedItem = null;
+            tpJamMulai.Text = null; 
+            tpJamSelesai.Text = null;
         }
     }
 }
