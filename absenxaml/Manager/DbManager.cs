@@ -65,6 +65,19 @@ namespace AbsenMVC.Model
             var matkulUser2 = db.GetCollection<MatkulUser>(cltName);
             return matkulUser2;
         }
+        
+        public static IMongoCollection<Absensi> getTbAbsensi()
+        {
+            var cltName = "absensi";
+            if (CheckCollection(cltName))
+            {
+                var absensi = db.GetCollection<Absensi>(cltName);
+                return absensi;
+            }
+            db.CreateCollection(cltName);
+            var absensi2 = db.GetCollection<Absensi>(cltName);
+            return absensi2;
+        }
         private static bool CheckCollection(string collectionName)
         {
             var filter = new BsonDocument("name", collectionName);

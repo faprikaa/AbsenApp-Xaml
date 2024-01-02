@@ -37,7 +37,9 @@ namespace absenxaml
             MainFrame.Navigate(new DataMatkul());
         }
 
-
-
+        private void absenHeader_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AbsenWindow());
+        }
     }
 }

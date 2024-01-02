@@ -16,6 +16,7 @@
                 </MenuItem>
                 <MenuItem Header="_Matkul" Click="matkulHeader_Click"/>
                 <MenuItem Header="_User" Click="userHeader_Click"/>
+                <MenuItem Header="_Absen" Click="absenHeader_Click"/>
             </Menu>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>

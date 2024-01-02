@@ -144,8 +144,8 @@ namespace absenxaml.View
             var mb = MessageBox.Show("Anda yakin menghapus data ini?", "Kofirmasi", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (mb == MessageBoxResult.OK) { 
                 matkulUserManager.DeleteById(ObjectId.Parse(selectedOption.MatkulUserId));
+                refreshDataGrid();
             }
-            refreshDataGrid();
             btnClear_Click(sender, e);  
         }
     }
