@@ -1,0 +1,87 @@
+[
+  {
+    "nama": "Antons",
+    "role": "mahasiswa"
+  }
+]
+
+
+[
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d6030d"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d6030e"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d6030f"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60310"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60311"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60312"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60313"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60314"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60315"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60316"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+  {
+    "matkul_user_id": {
+      "$oid": "659037240b1bf3a3c9d60317"
+    },
+    "tanggal": 2024-01-02T16: 05: 56.145+00: 00,
+    "absen": "hadir"
+  },
+]

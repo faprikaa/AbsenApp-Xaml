@@ -151,20 +151,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Manager\AbsensiManager.cs" />
     <Compile Include="Manager\MatkulUserManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\Utils.cs" />
-    <Compile Include="Model\Absen.cs" />
+    <Compile Include="Model\Absensi.cs" />
     <Compile Include="Model\MatkulUser.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="View\AbsenWindow.xaml.cs">
-      <DependentUpon>AbsenWindow.xaml</DependentUpon>
+    <Compile Include="View\AbsenPage.xaml.cs">
+      <DependentUpon>AbsenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddMatkul.xaml.cs">
       <DependentUpon>AddMatkul.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MatkulWindow.xaml.cs">
-      <DependentUpon>MatkulWindow.xaml</DependentUpon>
+    <Compile Include="View\MatkulPage.xaml.cs">
+      <DependentUpon>MatkulPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -177,10 +178,10 @@
     <Compile Include="View\MatkulUserWindow.xaml.cs">
       <DependentUpon>MatkulUserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserWindow.xaml.cs">
-      <DependentUpon>UserWindow.xaml</DependentUpon>
+    <Compile Include="View\UserPage.xaml.cs">
+      <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\AbsenWindow.xaml">
+    <Page Include="View\AbsenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +189,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MatkulWindow.xaml">
+    <Page Include="View\MatkulPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,7 +201,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserWindow.xaml">
+    <Page Include="View\UserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

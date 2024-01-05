@@ -39,7 +39,7 @@ namespace absenxaml
 
         private void absenHeader_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AbsenWindow());
+            MainFrame.Navigate(new AbsenPage());
         }
     }
 }

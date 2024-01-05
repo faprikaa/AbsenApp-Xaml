@@ -20,9 +20,8 @@ namespace AbsenMVC.Model
         [BsonElement("role")]
         public string Role { get; set; }
 
-        public User(string nama, string role = "mahasiswa", ObjectId id = default(ObjectId))
+        public User(string nama, string role = "mahasiswa")
         {
-            Id = id;
             this.Nama = nama;
             this.Role = role;
         }

@@ -26,26 +26,7 @@ namespace absenxaml.Manager
 
         public IMongoCollection<User> getUser()
         {
-            var c = _users.CountDocuments(FilterDefinition<User>.Empty);
-            if (c < 1)
-            {
-                insetDataIfNull();
-            }
             return _users;
-        }
-
-        private void insetDataIfNull()
-        {
-            List<User> users = new List<User>
-            {
-                new User( "Anton", "mahasiswa",ObjectId.Parse("658fa5f7a358110c2d0d6ca4") ),
-                new User("Bayu", "mahasiswa", ObjectId.Parse("658fa5f7a358110c2d0d6ca5")),
-                new User("Caca", "mahasiswa", ObjectId.Parse("658fa5f7a358110c2d0d6ca6")),
-                new User("Pak Dustin", "dosen", ObjectId.Parse("658fa5f7a358110c2d0d6ca7")),
-                new User("Bu Enoki", "dosen", ObjectId.Parse("658fa5f7a358110c2d0d6ca8")),
-                new User("Mas Fatin", "admin", ObjectId.Parse("658fa5f7a358110c2d0d6ca9")),
-            };
-            _users.InsertMany(users);
         }
 
         public void InsertNewUser(User user)

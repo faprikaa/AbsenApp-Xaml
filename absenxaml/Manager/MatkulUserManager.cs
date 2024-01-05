@@ -25,12 +25,7 @@ namespace absenxaml.Manager
         }
 
         public List<BsonDocument> getMatkulUserByUserId(ObjectId userId)
-        {
-            var c = _matkulUser.CountDocuments(FilterDefinition<MatkulUser>.Empty);
-            if (c < 1)
-            {
-                insertDataIfNull();
-            }
+        { 
             var filter = filterBuilder.Eq(mu => mu.UserId, userId);
             var result = _matkulUser.Find(filter).ToList();
             var agg = _matkulUser.Aggregate()
@@ -44,37 +39,6 @@ namespace absenxaml.Manager
                 .Unwind("DataMatkul");
             return agg.ToList();
 
-        }
-
-
-        private void insertDataIfNull()
-        {
-            List<MatkulUser> matkulUsers = new List<MatkulUser>
-            {
-                // user anton
-                new MatkulUser(ObjectId.Parse("657b08352e39af52b5c8db53"), ObjectId.Parse("658fa5f7a358110c2d0d6ca4"), "Senin", "07.00", "08:00"),
-                new MatkulUser(ObjectId.Parse("6579b32c973b0428dc6fbb98"), ObjectId.Parse("658fa5f7a358110c2d0d6ca4"), "Selasa", "09.00", "10:00"),
-                new MatkulUser(ObjectId.Parse("6579b355c67f3103b02078c7"), ObjectId.Parse("658fa5f7a358110c2d0d6ca4"), "Rabu", "07.00", "08:00"),
-                
-                // user Bayu
-                new MatkulUser(ObjectId.Parse("657b08352e39af52b5c8db53"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Senin", "07.00", "08:00"),
-                new MatkulUser(ObjectId.Parse("6579b32c973b0428dc6fbb98"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Selasa", "09.00", "10:00"),
-                new MatkulUser(ObjectId.Parse("6579b355c67f3103b02078c7"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Rabu", "09.00", "10:00"),
-                
-                // user Bayu
-                new MatkulUser(ObjectId.Parse("657b08352e39af52b5c8db53"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Jumat", "13.00", "15:00"),
-                new MatkulUser(ObjectId.Parse("6579b32c973b0428dc6fbb98"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Selasa", "09.00", "10:00"),
-                new MatkulUser(ObjectId.Parse("6579b355c67f3103b02078c7"), ObjectId.Parse("658fa5f7a358110c2d0d6ca5"), "Rabu", "09.00", "10:00"),
-
-                // user pak Dustin 
-                new MatkulUser(ObjectId.Parse("657b08352e39af52b5c8db53"), ObjectId.Parse("658fa5f7a358110c2d0d6ca7"),"Senin", "07.00", "08:00"),
-                new MatkulUser(ObjectId.Parse("6579b32c973b0428dc6fbb98"), ObjectId.Parse("658fa5f7a358110c2d0d6ca7"), "Selasa", "09.00", "10:00"),
-
-                // user bu enoki
-                new MatkulUser(ObjectId.Parse("6579b355c67f3103b02078c7"), ObjectId.Parse("658fa5f7a358110c2d0d6ca8"),"Rabu", "09.00", "10:00")
-
-            };
-            _matkulUser.InsertMany(matkulUsers);
         }
 
         public void InsertNewMatkulUser(MatkulUser matkulUser)

@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca4"
+  },
+  "nama": "Anton",
+  "role": "mahasiswa"
+},
+{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca5"
+  },
+  "nama": "Bayu",
+  "role": "mahasiswa"
+},
+{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca6"
+  },
+  "nama": "Caca",
+  "role": "mahasiswa"
+},
+{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca7"
+  },
+  "nama": "Pak Dustin",
+  "role": "dosen"
+},
+{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca8"
+  },
+  "nama": "Bu Enoki",
+  "role": "dosen"
+},
+{
+  "_id": {
+    "$oid": "658fa5f7a358110c2d0d6ca9"
+  },
+  "nama": "Mas Fatin",
+  "role": "admin"
+}]

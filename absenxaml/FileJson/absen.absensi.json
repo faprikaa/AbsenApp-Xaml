@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "659434646d6aa7abc7be0f6e"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d6030c"
+  },
+  "tanggal": {
+    "$date": "2024-01-02T16:05:56.145Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2d7"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d6030d"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2d8"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d6030e"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2d9"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d6030f"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2da"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60310"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2db"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60311"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2dc"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60312"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2dd"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60313"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2de"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60314"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2df"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60315"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2e0"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60316"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+},
+{
+  "_id": {
+    "$oid": "65944637531cb4bfb084d2e1"
+  },
+  "matkul_user_id": {
+    "$oid": "659037240b1bf3a3c9d60317"
+  },
+  "tanggal": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "absen": "hadir"
+}]
