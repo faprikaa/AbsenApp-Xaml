@@ -1,5 +1,6 @@
 ﻿using AbsenMVC.Model;
 using absenxaml.Manager;
+using absenxaml.View.Windows;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace absenxaml.View
+namespace absenxaml.View.Pages
 {
     /// <summary>
     /// Interaction logic for DataUser.xaml
@@ -55,7 +56,7 @@ namespace absenxaml.View
                 MessageBox.Show("Harap lengkapi input diatas", "Info", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            User newUser = new User(nama, role);
+            User newUser = new User(nama, nama, nama, role);
             userManager.InsertNewUser(newUser);
             MessageBox.Show("Sukses menambah user baru !", "Sukses", MessageBoxButton.OK, MessageBoxImage.Information);
             clear();

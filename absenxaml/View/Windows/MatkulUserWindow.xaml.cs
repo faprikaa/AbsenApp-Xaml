@@ -23,7 +23,7 @@ using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit.Primitives;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
-namespace absenxaml.View
+namespace absenxaml.View.Windows
 {
     /// <summary>
     /// Interaction logic for DataMatkulUserWindow.xaml

@@ -1,42 +1,56 @@
-[{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca4"
+[
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "username": "anton",
+    "password": "anton",
+    "nama": "Anton",
+    "role": "mahasiswa"
   },
-  "nama": "Anton",
-  "role": "mahasiswa"
-},
-{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "username": "bayu",
+    "password": "bayu",
+    "nama": "Bayu",
+    "role": "mahasiswa"
   },
-  "nama": "Bayu",
-  "role": "mahasiswa"
-},
-{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca6"
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca6"
+    },
+    "username": "caca",
+    "password": "caca",
+    "nama": "Caca",
+    "role": "mahasiswa"
   },
-  "nama": "Caca",
-  "role": "mahasiswa"
-},
-{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca7"
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca7"
+    },
+    "username": "pdustin",
+    "password": "pdustin",
+    "nama": "Pak Dustin",
+    "role": "dosen"
   },
-  "nama": "Pak Dustin",
-  "role": "dosen"
-},
-{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca8"
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca8"
+    },
+    "username": "benoki",
+    "password": "benoki",
+    "nama": "Bu Enoki",
+    "role": "dosen"
   },
-  "nama": "Bu Enoki",
-  "role": "dosen"
-},
-{
-  "_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca9"
-  },
-  "nama": "Mas Fatin",
-  "role": "admin"
-}]
+  {
+    "_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca9"
+    },
+    "username": "mfatin",
+    "password": "mfatin",
+    "nama": "Mas Fatin",
+    "role": "admin"
+  }
+]

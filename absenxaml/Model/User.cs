@@ -14,14 +14,21 @@ namespace AbsenMVC.Model
         [BsonId, BsonElement("_id")]
         public ObjectId Id { get; set; }
 
+        [BsonElement("username")]
+        public string Username { get; set; }
+        [BsonElement("password")]
+        public string Password { get; set; }
+
         [BsonElement("nama")]
         public string Nama { get; set; }
 
         [BsonElement("role")]
         public string Role { get; set; }
 
-        public User(string nama, string role = "mahasiswa")
+        public User(string nama, string username, string password, string role = "mahasiswa")
         {
+            Username = username;
+            Password = password;
             this.Nama = nama;
             this.Role = role;
         }
