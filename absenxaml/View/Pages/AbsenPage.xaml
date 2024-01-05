@@ -9,7 +9,7 @@
     <Grid Background="White">
         <DataGrid x:Name="dgAbsen" AutoGenerateColumns="False" Margin="0,0,400,4"
                     CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False"
-                  SelectionMode="Single" RowHeight="25"
+                  SelectionMode="Single" RowHeight="25" SelectionChanged="dgAbsen_SelectionChanged"
 >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Tanggal" Binding="{Binding tanggal}" IsReadOnly="True" Width="auto" />
@@ -18,5 +18,10 @@
                 <DataGridTextColumn Header="Kehadiran" Binding="{Binding absen}" IsReadOnly="True" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="Kehadiran" HorizontalAlignment="Right" Margin="0,0,70,274" VerticalAlignment="Bottom" FontSize="16"/>
+        <Label Content="Kehadiran" HorizontalAlignment="Right" Margin="0,0,280,274" VerticalAlignment="Bottom" FontSize="16"/>
+        <TextBox x:Name="tbUser" HorizontalAlignment="Right" Margin="0,0,248,246" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
+        <ComboBox x:Name="cbUser" HorizontalAlignment="Left" Margin="630,181,0,0" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Button x:Name="btnSimpan" Content="Simpan" HorizontalAlignment="Left" Margin="557,241,0,0" VerticalAlignment="Top" FontSize="16" Click="btnSimpan_Click"/>
     </Grid>
 </Page>

@@ -54,7 +54,7 @@ namespace absenxaml.View.Windows
             }
             else
             {
-                MessageBox.Show("Saat ini tidak sedang dalam waktu mengajar !", "Warning", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                MessageBox.Show("Saat ini tidak sedang dalam waktu belajar !", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

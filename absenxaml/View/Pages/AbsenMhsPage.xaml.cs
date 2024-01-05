@@ -35,6 +35,7 @@ namespace absenxaml.View.Pages
             InitializeComponent();
             this.matkulUser = matkulUser;
             this.matkul = matkulManager.GetMatkulById(matkulUser.MatkulId);
+            absensiManager.InsertIfNotExist(matkulUser);
             var currentTime = DateTime.Now;
             lbJam.Content = currentTime.Hour + " " + currentTime.Minute;
             lbMatkul.Content = matkul.Nama;

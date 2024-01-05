@@ -62,6 +62,8 @@ namespace absenxaml.Manager
                     return "Kamis";
                 case "friday":
                     return "Jumat";
+                case "saturday":
+                    return "Jumat";
                 default:
                     return "Hari tidak valid";
             }

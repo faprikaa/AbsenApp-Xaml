@@ -32,18 +32,42 @@ namespace absenxaml.View
         {
             InitializeComponent();
             RefreshDataGrid();
+            cbUser.Items.Clear();
+            cbUser.ItemsSource = new List<string> { "Hadir", "Izin", "Cuti", "Absen" };
+            tbUser.Text = "";
         }
 
         private void RefreshDataGrid()
         {
             dgAbsen.ItemsSource = null;
             List<dynamic> listDataJadi = new List<dynamic>();
-            List<BsonDocument> listDataRaw =  absensiManager.getAbsensiWithAggregate();
+            List<BsonDocument> listDataRaw = absensiManager.getAbsensiWithAggregate();
             listDataRaw.ForEach(data =>
             {
-                listDataJadi.Add(BsonSerializer.Deserialize<dynamic>(data) );
+                listDataJadi.Add(BsonSerializer.Deserialize<dynamic>(data));
             });
             dgAbsen.ItemsSource = listDataJadi;
         }
+
+        private void btnSimpan_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dgAbsen.SelectedItem as dynamic;
+            if (selected != null)
+            {
+                var newHadir = cbUser.SelectedItem as string;
+                absensiManager.UpdateAbsensi(selected._id, newHadir);
+                Utils.ShowMBInfo("Berhasil update data kehadiran");
+                RefreshDataGrid();
+            }
+        }
+            private void dgAbsen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            {
+                var selected = dgAbsen.SelectedItem as dynamic;
+                if (selected != null)
+                {
+                    tbUser.Text = selected.user.nama;
+                    cbUser.SelectedItem = selected.absen;
+                }
+            }
+        }
     }
-}

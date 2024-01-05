@@ -39,6 +39,7 @@ namespace absenxaml.View.Pages
         public AbsenDosenPage(MatkulUser matkulUser)
         {
             InitializeComponent();
+            absensiManager.InsertIfNotExist(matkulUser);
             this.matkulId = matkulUser.MatkulId;
             this.userId = matkulUser.UserId;
             this.matkulUser = matkulUser;
@@ -49,7 +50,6 @@ namespace absenxaml.View.Pages
         private void RefreshDataGrid()
         {
             dosenAbsensi = absensiManager.GetAbsensiByMatkulUserId(matkulUser.Id);
-            Console.WriteLine("ASDAa" + dosenAbsensi.Absen);
 
             cbKehadiranDosen.SelectedItem = dosenAbsensi.Absen;
             this.DataContext = this;
