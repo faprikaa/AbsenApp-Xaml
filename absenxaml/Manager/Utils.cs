@@ -45,5 +45,38 @@ namespace absenxaml.Manager
             }
             return list;
         }
+
+        public static string GetCurrentLocalDay()
+        {
+            DateTime currentDate = DateTime.Now;
+            string day = currentDate.DayOfWeek.ToString();
+            switch (day.ToLower())
+            {
+                case "monday":
+                    return "Senin";
+                case "tuesday":
+                    return "Selasa";
+                case "wednesday":
+                    return "Rabu";
+                case "thursday":
+                    return "Kamis";
+                case "friday":
+                    return "Jumat";
+                default:
+                    return "Hari tidak valid";
+            }
+        }
+
+        public static TimeSpan StringToTimeSpan(string str)
+        {
+            string[] parts = str.Split(':');
+            if (parts.Length == 2 && int.TryParse(parts[0], out int hours) && int.TryParse(parts[1], out int minutes))
+            {
+                return new TimeSpan(hours, minutes, 0);
+            }
+
+            // Handle case when parsing fails (return default TimeSpan or throw exception)
+            return TimeSpan.Zero;
+        }    
     }
 }

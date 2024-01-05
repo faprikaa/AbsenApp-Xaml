@@ -2,8 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:absenxaml"
-             StartupUri="View/Windows/LoginWindow.xaml">
+             StartupUri="View/Windows/DosenWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>
 </Application>
+
+
+<!--StartupUri="View/Windows/LoginWindow.xaml">-->

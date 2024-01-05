@@ -36,14 +36,17 @@ namespace absenxaml.View.Windows
                 Utils.ShowMBWarning("Harap lengkapi input diatas !");
             } else
             {
-                if(userManager.LoginAttempt(un, pw))
-                {
-                    Utils.ShowMBInfo("Berhasil login");
-                    new MainWindow().Show();    
-                    this.Close();
-                } else
+                var loginRes = userManager.LoginAttempt(un, pw);
+                if (loginRes == "unknown")
                 {
                     Utils.ShowMBWarning("Username atau password salah");
+
+                }
+                else if (loginRes == "dosen")
+                {
+                    Utils.ShowMBInfo("Berhasil login");
+                    new DosenWindow().Show();
+                    this.Close();
                 }
             }
 

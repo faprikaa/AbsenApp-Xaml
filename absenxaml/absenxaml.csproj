@@ -158,11 +158,20 @@
     <Compile Include="Model\Absensi.cs" />
     <Compile Include="Model\MatkulUser.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="View\Pages\AbsenDosenPage.xaml.cs">
+      <DependentUpon>AbsenDosenPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AbsenPage.xaml.cs">
       <DependentUpon>AbsenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\AddMatkul.xaml.cs">
       <DependentUpon>AddMatkul.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\JadwalPage.xaml.cs">
+      <DependentUpon>JadwalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\MatkulPage.xaml.cs">
       <DependentUpon>MatkulPage.xaml</DependentUpon>
@@ -170,6 +179,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Windows\DosenWindow.xaml.cs">
+      <DependentUpon>DosenWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -184,6 +196,10 @@
     <Compile Include="View\Pages\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Pages\AbsenDosenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\AbsenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,7 +208,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\JadwalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\MatkulPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\DosenWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -50,5 +50,12 @@ namespace absenxaml.Manager
             return agg.ToList();
         }
 
+        public void UpdateAbsensi(ObjectId absensiId, string newValueAbsen)
+        {
+            var filter = Builders<Absensi>.Filter.Where(a => a.AbsenId == absensiId);
+            var query = Builders<Absensi>.Update.Set(a => a.Absen, newValueAbsen);
+            _absensi.UpdateOne(filter, query);
+        }
+
     }
 }

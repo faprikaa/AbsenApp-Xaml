@@ -1,168 +1,227 @@
-[{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d6030c"
+[
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d6030c"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "hari": "Senin",
+    "jam_mulai": "07.00",
+    "jam_selesai": "08:00"
   },
-  "matkul_id": {
-    "$oid": "657b08352e39af52b5c8db53"
+  {
+    "_id": {
+      "$oid": "6597eadd0b06410a7135a848"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "hari": "Jumat",
+    "jam_mulai": "17.00",
+    "jam_selesai": "18:00"
   },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca4"
+  {
+    "_id": {
+      "$oid": "6597e5ae2befc86fa708b090"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "hari": "Jumat",
+    "jam_mulai": "17.00",
+    "jam_selesai": "1:00"
   },
-  "hari": "Senin",
-  "jam_mulai": "07.00",
-  "jam_selesai": "08:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d6030d"
+
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d6030d"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "hari": "Selasa",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "matkul_id": {
-    "$oid": "6579b32c973b0428dc6fbb98"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d6030e"
+    },
+    "matkul_id": {
+      "$oid": "6579b355c67f3103b02078c7"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca4"
+    },
+    "hari": "Rabu",
+    "jam_mulai": "17.00",
+    "jam_selesai": "18:00"
   },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca4"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d6030f"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Senin",
+    "jam_mulai": "07.00",
+    "jam_selesai": "08:00"
   },
-  "hari": "Selasa",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d6030e"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60310"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Selasa",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "matkul_id": {
-    "$oid": "6579b355c67f3103b02078c7"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60311"
+    },
+    "matkul_id": {
+      "$oid": "6579b355c67f3103b02078c7"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Rabu",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca4"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60312"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Jumat",
+    "jam_mulai": "13.00",
+    "jam_selesai": "15:00"
   },
-  "hari": "Rabu",
-  "jam_mulai": "07.00",
-  "jam_selesai": "08:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d6030f"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60313"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Selasa",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "matkul_id": {
-    "$oid": "657b08352e39af52b5c8db53"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60314"
+    },
+    "matkul_id": {
+      "$oid": "6579b355c67f3103b02078c7"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca5"
+    },
+    "hari": "Rabu",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60315"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca7"
+    },
+    "hari": "Senin",
+    "jam_mulai": "07.00",
+    "jam_selesai": "08:00"
   },
-  "hari": "Senin",
-  "jam_mulai": "07.00",
-  "jam_selesai": "08:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60310"
+  {
+    "_id": {
+      "$oid": "6597e115bd53979a1268e481"
+    },
+    "matkul_id": {
+      "$oid": "657b08352e39af52b5c8db53"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca7"
+    },
+    "hari": "Jumat",
+    "jam_mulai": "17.00",
+    "jam_selesai": "20:00"
   },
-  "matkul_id": {
-    "$oid": "6579b32c973b0428dc6fbb98"
+  {
+    "_id": {
+      "$oid": "6597f133df2907dcb4ac852a"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca7"
+    },
+    "hari": "Jumat",
+    "jam_mulai": "17.00",
+    "jam_selesai": "18:00"
   },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60316"
+    },
+    "matkul_id": {
+      "$oid": "6579b32c973b0428dc6fbb98"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca7"
+    },
+    "hari": "Selasa",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
   },
-  "hari": "Selasa",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60311"
-  },
-  "matkul_id": {
-    "$oid": "6579b355c67f3103b02078c7"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
-  },
-  "hari": "Rabu",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60312"
-  },
-  "matkul_id": {
-    "$oid": "657b08352e39af52b5c8db53"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
-  },
-  "hari": "Jumat",
-  "jam_mulai": "13.00",
-  "jam_selesai": "15:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60313"
-  },
-  "matkul_id": {
-    "$oid": "6579b32c973b0428dc6fbb98"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
-  },
-  "hari": "Selasa",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60314"
-  },
-  "matkul_id": {
-    "$oid": "6579b355c67f3103b02078c7"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca5"
-  },
-  "hari": "Rabu",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60315"
-  },
-  "matkul_id": {
-    "$oid": "657b08352e39af52b5c8db53"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca7"
-  },
-  "hari": "Senin",
-  "jam_mulai": "07.00",
-  "jam_selesai": "08:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60316"
-  },
-  "matkul_id": {
-    "$oid": "6579b32c973b0428dc6fbb98"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca7"
-  },
-  "hari": "Selasa",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-},
-{
-  "_id": {
-    "$oid": "659037240b1bf3a3c9d60317"
-  },
-  "matkul_id": {
-    "$oid": "6579b355c67f3103b02078c7"
-  },
-  "user_id": {
-    "$oid": "658fa5f7a358110c2d0d6ca8"
-  },
-  "hari": "Rabu",
-  "jam_mulai": "09.00",
-  "jam_selesai": "10:00"
-}]
+  {
+    "_id": {
+      "$oid": "659037240b1bf3a3c9d60317"
+    },
+    "matkul_id": {
+      "$oid": "6579b355c67f3103b02078c7"
+    },
+    "user_id": {
+      "$oid": "658fa5f7a358110c2d0d6ca8"
+    },
+    "hari": "Rabu",
+    "jam_mulai": "09.00",
+    "jam_selesai": "10:00"
+  }
+]
