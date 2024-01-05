@@ -1,4 +1,7 @@
-﻿using System;
+﻿using absenxaml.Manager;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,25 @@ namespace absenxaml.View.Pages
     /// </summary>
     public partial class HistoryPage : Page
     {
-        public HistoryPage()
+        private MatkulUserManager matkulUserManager = new MatkulUserManager();
+        public HistoryPage(ObjectId userId)
         {
             InitializeComponent();
+            SetupView(userId);
+        }
+
+        private void SetupView(ObjectId userId)
+        {
+            var listDataRaw = matkulUserManager.GetHistoryByUserId(userId);
+            var listJadi = new List<dynamic>();
+            foreach (var item in listDataRaw)
+            {
+                var jadi = BsonSerializer.Deserialize<dynamic>(item);
+                Console.WriteLine(item.ToString());
+                listJadi.Add(jadi);
+            }
+            dgHistory.ItemsSource = listJadi;
+
         }
     }
 }

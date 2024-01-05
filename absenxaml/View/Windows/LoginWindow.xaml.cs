@@ -37,15 +37,27 @@ namespace absenxaml.View.Windows
             } else
             {
                 var loginRes = userManager.LoginAttempt(un, pw);
-                if (loginRes == "unknown")
+                if (loginRes.Username == "")
                 {
                     Utils.ShowMBWarning("Username atau password salah");
 
                 }
-                else if (loginRes == "dosen")
+                else if (loginRes.Role == "dosen")
                 {
                     Utils.ShowMBInfo("Berhasil login");
-                    new DosenWindow().Show();
+                    new DosenWindow(loginRes.Id).Show();
+                    this.Close();
+                }
+                else if (loginRes.Role == "mahasiswa")
+                {
+                    Utils.ShowMBInfo("Berhasil login");
+                    new MahasiswaWindow(loginRes.Id).Show();
+                    this.Close();
+                }
+                else if (loginRes.Role == "admin")
+                {
+                    Utils.ShowMBInfo("Berhasil login");
+                    new MainWindow().Show();
                     this.Close();
                 }
             }

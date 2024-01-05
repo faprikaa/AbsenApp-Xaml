@@ -9,16 +9,16 @@
       Title="HistoryPage">
 
     <Grid>
-        <DataGrid x:Name="dgJadwal" AutoGenerateColumns="False" Margin="0,0,400,0"
+        <DataGrid x:Name="dgHistory" AutoGenerateColumns="False" Margin="0,0,0,0"
                 CanUserAddRows="False" IsReadOnly="True"
-                  CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="25" >
+                  CanUserDeleteRows="True" CanUserSortColumns="True" RowHeight="25">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Mata Kuliah" Binding="{Binding Nama}" Width="auto" />
-                <DataGridTextColumn Header="Hari" Binding="{Binding Hari}" Width="auto" />
-                <DataGridTextColumn Header="Tanggal" Binding="{Binding Tanggal}" Width="auto" />
-                <DataGridTextColumn Header="Jam Mulai" Binding="{Binding JamMulai}" Width="auto" />
-                <DataGridTextColumn Header="Jam Selesai" Binding="{Binding JamSelesai}" Width="auto" />
-                <DataGridTextColumn Header="Kehadiran" Binding="{Binding Kehadiran}" Width="auto" />
+                <DataGridTextColumn Header="Tanggal" Binding="{Binding absensi.tanggal}" Width="auto" />
+                <DataGridTextColumn Header="Mata Kuliah" Binding="{Binding matkul.nama}" Width="auto" />
+                <DataGridTextColumn Header="Hari" Binding="{Binding hari}" Width="auto" />
+                <DataGridTextColumn Header="Jam Mulai" Binding="{Binding jam_mulai}" Width="auto" />
+                <DataGridTextColumn Header="Jam Selesai" Binding="{Binding jam_selesai}" Width="auto" />
+                <DataGridTextColumn Header="Kehadiran" Binding="{Binding absensi.absen}" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
 

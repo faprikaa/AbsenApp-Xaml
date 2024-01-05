@@ -42,5 +42,14 @@ namespace absenxaml.View.Windows
         {
             MainFrame.Navigate(new AbsenPage());
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var mb = MessageBox.Show("Are you sure to logout ?", "Confirm", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (mb == MessageBoxResult.OK)
+                new LoginPage().Show();
+                this.Close();
+            }
+        }
     }
 }

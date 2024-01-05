@@ -52,6 +52,13 @@ namespace AbsenMVC.Model
             var result = _matkul.Find(filter).FirstOrDefault();
             return result;
         }
+        
+        public Matkul GetMatkulById(ObjectId matkulId)
+        {
+            var filter = Builders<Matkul>.Filter.Eq(m => m.Id, matkulId);
+            var result = _matkul.Find(filter).FirstOrDefault();
+            return result;
+        }
 
     }
 }

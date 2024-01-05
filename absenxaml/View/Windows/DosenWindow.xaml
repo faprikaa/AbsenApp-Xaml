@@ -13,7 +13,7 @@
                 <MenuItem Header="_Menu">
                     <MenuItem Command="New" />
                     <Separator />
-                    <MenuItem Header="_Exit" />
+                    <MenuItem Header="_Logout" Click="MenuItem_Click_3" />
                 </MenuItem>
                 <MenuItem Header="_Absensi" Click="MenuItem_Click"/>
                 <MenuItem Header="_Jadwal" Click="MenuItem_Click_1"/>

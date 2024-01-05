@@ -17,6 +17,8 @@ namespace absenxaml.Manager
 
     public class MatkulUserManager
     {
+
+        private AbsensiManager absensiManager = new AbsensiManager();
         private IMongoCollection<MatkulUser> _matkulUser;
         private FilterDefinitionBuilder<MatkulUser> filterBuilder = Builders<MatkulUser>.Filter;
         private UpdateDefinitionBuilder<MatkulUser> updateBuilder = Builders<MatkulUser>.Update;
@@ -64,12 +66,19 @@ namespace absenxaml.Manager
             _matkulUser.FindOneAndDelete(mu => mu.Id == matkulUserId);
         }
 
-        public List<BsonDocument> GetMahasiswaByMatkulId(ObjectId matkulId)
+        public List<BsonDocument> GetMahasiswaByMatkulUser(MatkulUser matkulUser)
         {
-            var hariIni = Utils.GetCurrentLocalDay();
+            var filter = Builders<MatkulUser>.Filter.Where(mu => mu.MatkulId == matkulUser.MatkulId) &
+                 Builders<MatkulUser>.Filter.Where(mu => mu.Hari == matkulUser.Hari) &
+                 Builders<MatkulUser>.Filter.Where(mu => mu.JamMulai == matkulUser.JamMulai) &
+                 Builders<MatkulUser>.Filter.Where(mu => mu.JamSelesai == matkulUser.JamSelesai);
+            var listMatkulUser = _matkulUser.Find(filter).ToList();
+            Console.WriteLine(listMatkulUser.Count);
+            Console.WriteLine(listMatkulUser.ToJson());
+            listMatkulUser.ForEach(mu => absensiManager.InsertIfNotExist(mu));           
+
             var agg = _matkulUser.Aggregate()
-                .Match(mu => mu.MatkulId == matkulId)
-                .Match(mu => mu.Hari == hariIni)
+                .Match(filter)
                 .Lookup(
                     "matkul",
                     "matkul_id",
@@ -92,17 +101,19 @@ namespace absenxaml.Manager
                 )
                 .Unwind("absensi")
                 .ToList();
+            Console.WriteLine("ADASD" + agg.ToJson());
             var mahasiswaResults = agg
                 .Where(result =>
                 {
                     BsonDocument user = result["user"].AsBsonDocument;
-                    return user["role"].AsString == "mahasiswa";
+                    var x = user["role"].AsString == "mahasiswa";
+                    return x;
                 })
                 .ToList();
             return mahasiswaResults;
         }
 
-        public ObjectId GetCurrentMatkulId(ObjectId userId)
+        public MatkulUser GetCurrentMatkulUser(ObjectId userId)
         {
             DateTime currentDate = DateTime.Now;
             string hariIni = Utils.GetCurrentLocalDay();
@@ -111,18 +122,18 @@ namespace absenxaml.Manager
             var filter = Builders<MatkulUser>.Filter.Eq(mu => mu.UserId, userId) &
                          Builders<MatkulUser>.Filter.Eq(mu => mu.Hari, hariIni);
             var result = _matkulUser.Find(filter).ToList();
-            var jadi = ObjectId.Empty;
+            var jadi = new MatkulUser();
 
             result.ForEach(mu =>
             {
+                Console.WriteLine(Utils.StringToTimeSpan(mu.JamMulai) < currentTime);
+                Console.WriteLine(Utils.StringToTimeSpan(mu.JamSelesai) > currentTime);
                 if (Utils.StringToTimeSpan(mu.JamMulai) < currentTime &&
                 Utils.StringToTimeSpan(mu.JamSelesai) > currentTime) {
-                    jadi = mu.MatkulId;
+                    jadi = mu;
                 }
             });
             return jadi;
-
-
         }
 
         public List<BsonDocument> GetHistoryByUserId(ObjectId userId)
@@ -130,11 +141,17 @@ namespace absenxaml.Manager
             var agg = _matkulUser.Aggregate()
                 .Match(mu => mu.UserId == userId)
                 .Lookup(
-                "absensi",
-                "_id",
-                "matkul_user_id",
-                "absensi")
-                .Unwind("absensi");
+                    "absensi",
+                    "_id",
+                    "matkul_user_id",
+                    "absensi")
+                .Unwind("absensi")
+                .Lookup(
+                    "matkul",
+                    "matkul_id",
+                    "_id",
+                    "matkul")
+                .Unwind("matkul");
             return agg.ToList();
 
         }

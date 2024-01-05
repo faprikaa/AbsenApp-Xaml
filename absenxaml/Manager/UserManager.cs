@@ -50,15 +50,15 @@ namespace absenxaml.Manager
             return _users.Find(u => u.Id == id).FirstOrDefault();
         }
 
-        public string LoginAttempt(string username, string password)
+        public User LoginAttempt(string username, string password)
         {
             User user = _users.Find(u => u.Username == username && u.Password == password).FirstOrDefault();
             if ( user == null)
             {
-                return "unknown";
+                return new User("", "", "");
             } else
             {
-                return user.Role;
+                return user;
             }
 
         }  

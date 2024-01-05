@@ -1,4 +1,5 @@
 ﻿using absenxaml.Manager;
+using absenxaml.Model;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using System;
@@ -32,26 +33,35 @@ namespace absenxaml.View.Pages
         private dynamic dataMatkul;
         private dynamic dataMatkulUser;
         private ObjectId matkulId;
-        public AbsenDosenPage(ObjectId matkulId)
+        private ObjectId userId;
+        private MatkulUser matkulUser;
+        private Absensi dosenAbsensi;
+        public AbsenDosenPage(MatkulUser matkulUser)
         {
             InitializeComponent();
-            this.matkulId = matkulId;
+            this.matkulId = matkulUser.MatkulId;
+            this.userId = matkulUser.UserId;
+            this.matkulUser = matkulUser;
             RefreshDataGrid();
             SetupView();
         }
 
         private void RefreshDataGrid()
         {
+            dosenAbsensi = absensiManager.GetAbsensiByMatkulUserId(matkulUser.Id);
+            Console.WriteLine("ASDAa" + dosenAbsensi.Absen);
 
+            cbKehadiranDosen.SelectedItem = dosenAbsensi.Absen;
             this.DataContext = this;
             dgAbsenDosen.ItemsSource = null;
-            var listMhs = matkulUserManager.GetMahasiswaByMatkulId(matkulId);
+            var listMhs = matkulUserManager.GetMahasiswaByMatkulUser(matkulUser);
+            Console.WriteLine("APSD" + listMhs.ToJson());
+
             var listJadi = new List<dynamic>();
             foreach (var item in listMhs)
             {
                 var jadi = BsonSerializer.Deserialize<dynamic>(item);
-                Console.WriteLine(item.ToString());
-
+                Console.WriteLine(jadi.ToString());
                 listJadi.Add(jadi);
             }
 
@@ -76,22 +86,40 @@ namespace absenxaml.View.Pages
         private void btnUpdateMhs_Click(object sender, RoutedEventArgs e)
         {
             var selected = dgAbsenDosen.SelectedItem as dynamic;
-            ObjectId absenId = selected.absensi._id;
-            string newAbsen = cbKehadiranMhs.SelectedValue.ToString();
-            absensiManager.UpdateAbsensi(absenId, newAbsen);
-            RefreshDataGrid();
-
+            if (selected != null)
+            {
+                ObjectId absenId = selected.absensi._id;
+                Console.WriteLine(absenId.ToString());
+                string newAbsen = cbKehadiranMhs.SelectedValue.ToString();
+                absensiManager.UpdateAbsensi(absenId, newAbsen);
+                Utils.ShowMBInfo("Berhasil update kehadiran !");
+                RefreshDataGrid();
+            }
         }
 
         private void SetupView()
         {
             cbKehadiranMhs.Items.Clear();
             cbKehadiranMhs.ItemsSource = listCb;
+            cbKehadiranMhs.SelectedIndex = 3;
             cbKehadiranDosen.Items.Clear();
             cbKehadiranDosen.ItemsSource = listCb;
+            cbKehadiranDosen.SelectedIndex = 3;
             lbMatkul.Content = dataMatkul.nama;
             lbTanggal.Content = DateTime.Now.ToString();
             lbJam.Content = dataMatkulUser.jam_mulai + " - " + dataMatkulUser.jam_selesai;
+        }
+
+        private void btnSimpanDosen_Click(object sender, RoutedEventArgs e)
+        {
+            var kehadiranDosen = cbKehadiranDosen.SelectedItem as string;
+            if ( kehadiranDosen != null)
+            {
+                absensiManager.UpdateAbsensi(dosenAbsensi.AbsenId, kehadiranDosen);
+                Utils.ShowMBInfo("Berhasil update kehadiran !");
+                RefreshDataGrid();
+            }
+
         }
     }
 }

@@ -156,16 +156,17 @@
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\Utils.cs" />
     <Compile Include="Model\Absensi.cs" />
+    <Compile Include="Model\Kelas.cs" />
     <Compile Include="Model\MatkulUser.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="View\Pages\AbsenDosenPage.xaml.cs">
       <DependentUpon>AbsenDosenPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\AbsenMhsPage.xaml.cs">
+      <DependentUpon>AbsenMhsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\AbsenPage.xaml.cs">
       <DependentUpon>AbsenPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\AddMatkul.xaml.cs">
-      <DependentUpon>AddMatkul.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
@@ -183,6 +184,9 @@
     <Compile Include="View\Windows\DosenWindow.xaml.cs">
       <DependentUpon>DosenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\MahasiswaWindow.xaml.cs">
+      <DependentUpon>MahasiswaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -196,15 +200,18 @@
     <Compile Include="View\Pages\UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\UnPwWindow.xaml.cs">
+      <DependentUpon>UnPwWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="View\Pages\AbsenDosenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\AbsenPage.xaml">
+    <Page Include="View\Pages\AbsenMhsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\AddMatkul.xaml">
+    <Page Include="View\Pages\AbsenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -224,6 +231,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\MahasiswaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -237,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\UserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\UnPwWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

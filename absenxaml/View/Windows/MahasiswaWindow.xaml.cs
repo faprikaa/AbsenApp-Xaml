@@ -1,10 +1,8 @@
-﻿using AbsenMVC.Model;
-using absenxaml.Manager;
+﻿using absenxaml.Manager;
 using absenxaml.Model;
-using absenxaml.View.Pages;
 using absenxaml.View.Pages.Dosen;
+using absenxaml.View.Pages;
 using MongoDB.Bson;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,26 +20,26 @@ using System.Windows.Shapes;
 namespace absenxaml.View.Windows
 {
     /// <summary>
-    /// Interaction logic for DosenWindow.xaml
+    /// Interaction logic for MahasiswaWindow.xaml
     /// </summary>
-    public partial class DosenWindow : Window
+    public partial class MahasiswaWindow : Window
     {
         private MatkulUserManager matkulUserManager = new MatkulUserManager();
         private ObjectId userId;
         private MatkulUser matkulUser;
         private bool isOnMatkulTime = false;
-
-        public DosenWindow(ObjectId dosenId)
+        public MahasiswaWindow(ObjectId mhsId)
         {
             InitializeComponent();
-            userId = dosenId;
+            userId = mhsId;
             matkulUser = matkulUserManager.GetCurrentMatkulUser(userId);
-            
-            if (matkulUser.Hari != null )
+
+            if (matkulUser.Hari != null)
             {
-                MainFrame.Navigate(new AbsenDosenPage(matkulUser));
+                MainFrame.Navigate(new AbsenMhsPage(matkulUser));
                 isOnMatkulTime = true;
-            } else
+            }
+            else
             {
                 MainFrame.Navigate(new JadwalPage(userId));
                 isOnMatkulTime = false;
@@ -52,8 +50,9 @@ namespace absenxaml.View.Windows
         {
             if (isOnMatkulTime)
             {
-                MainFrame.Navigate(new AbsenDosenPage(matkulUser));
-            } else
+                MainFrame.Navigate(new AbsenMhsPage(matkulUser));
+            }
+            else
             {
                 MessageBox.Show("Saat ini tidak sedang dalam waktu mengajar !", "Warning", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
@@ -66,7 +65,7 @@ namespace absenxaml.View.Windows
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new HistoryPage(userId));    
+            MainFrame.Navigate(new HistoryPage(userId));
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)

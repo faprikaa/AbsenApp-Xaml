@@ -1,24 +1,26 @@
-﻿<Window x:Class="absenxaml.View.Windows.MainWindow"
+﻿<Window x:Class="absenxaml.View.Windows.MahasiswaWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:absenxaml.View.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MahasiswaWindow" Height="450" Width="800">
     <Grid>
         <DockPanel>
+
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
+                <MenuItem Header="_Menu">
                     <MenuItem Command="New" />
                     <Separator />
-                    <MenuItem Header="_Logout" Click="MenuItem_Click" />
+                    <MenuItem Header="_Logout" Click="MenuItem_Click_3"/>
                 </MenuItem>
-                <MenuItem Header="_Matkul" Click="matkulHeader_Click"/>
-                <MenuItem Header="_User" Click="userHeader_Click"/>
-                <MenuItem Header="_Absen" Click="absenHeader_Click"/>
+                <MenuItem Header="_Absensi" Click="MenuItem_Click"/>
+                <MenuItem Header="_Jadwal" Click="MenuItem_Click_1"/>
+                <MenuItem Header="_History" Click="MenuItem_Click_2"/>
             </Menu>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
         </DockPanel>
+
     </Grid>
 </Window>

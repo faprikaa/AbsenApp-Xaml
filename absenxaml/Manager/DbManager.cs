@@ -29,7 +29,7 @@ namespace AbsenMVC.Model
                 db = client.GetDatabase("absen");
                 DeleteAllDocument(true);
             }
-            DeleteAllDocument(true);
+            //DeleteAllDocument(true);
 
 
         }

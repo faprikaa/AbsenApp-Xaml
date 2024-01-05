@@ -10,7 +10,7 @@ namespace absenxaml.Model
 {
     public class MatkulUser
     {
-        public MatkulUser(ObjectId matkulId, ObjectId userId, string hari, string jamMulai, string jamSelesai)
+        public MatkulUser(ObjectId matkulId = default, ObjectId userId = default, string hari = default, string jamMulai = default, string jamSelesai = default)
         {
             MatkulId = matkulId;
             Hari = hari;

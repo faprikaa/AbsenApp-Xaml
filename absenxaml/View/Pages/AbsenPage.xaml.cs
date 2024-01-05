@@ -43,9 +43,6 @@ namespace absenxaml.View
             {
                 listDataJadi.Add(BsonSerializer.Deserialize<dynamic>(data) );
             });
-
-
-            Debug.WriteLine(listDataJadi.Count);
             dgAbsen.ItemsSource = listDataJadi;
         }
     }

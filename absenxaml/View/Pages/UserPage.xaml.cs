@@ -129,5 +129,16 @@ namespace absenxaml.View.Pages
             var wind = new DataMatkulUserWindow(selectedItem.Id);
             wind.Show();
         }
+
+        private void btnUnPw_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dgUser.SelectedItem as User;
+            if(selected != null)
+            {
+                var x = new UnPwWindow(selected.Id);
+                x.Show();
+
+            }
+        }
     }
 }

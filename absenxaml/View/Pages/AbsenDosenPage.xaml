@@ -26,7 +26,7 @@
         <Border BorderBrush="Black" BorderThickness="1" Margin="0,0,-1,193" Height="145" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="400"/>
         <Label x:Name="lbTanggal" Content="Label" HorizontalAlignment="Right" Margin="0,0,30,373" RenderTransformOrigin="0.682,1.594" Height="26" VerticalAlignment="Bottom"/>
         <Label Content="Nama Mahasiswa" HorizontalAlignment="Right"  Margin="0,0,240,294" VerticalAlignment="Bottom" RenderTransformOrigin="-0.33,0.51" FontSize="16"/>
-        <TextBox x:Name="tbNamaMhs" IsReadOnly="True" HorizontalAlignment="Right" Margin="0,0,247,269" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16" Height="25"/>
+        <TextBox x:Name="tbNamaMhs" IsReadOnly="True" Text="" HorizontalAlignment="Right" Margin="0,0,247,269" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="16" Height="25"/>
         <ComboBox x:Name="cbKehadiranMhs" HorizontalAlignment="Right" Margin="0,0,46,266" VerticalAlignment="Bottom" Width="120" FontSize="16">
             <ComboBox Width="120" Height="25"/>
         </ComboBox>
@@ -36,7 +36,7 @@
             <ComboBox Width="120" Height="25"/>
         </ComboBox>
         <Label Content="Kehadiran Dosen" HorizontalAlignment="Right" Margin="0,0,124,146" VerticalAlignment="Bottom" RenderTransformOrigin="-0.33,0.51" FontSize="16"/>
-        <Button x:Name="btnSimpanDosen" Content="Simpan" HorizontalAlignment="Right" Margin="0,0,157,66" VerticalAlignment="Bottom" FontSize="16" Padding="5,5,5,5" RenderTransformOrigin="2.087,1.796" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSimpanDosen" Content="Simpan" Click="btnSimpanDosen_Click" HorizontalAlignment="Right" Margin="0,0,157,66" VerticalAlignment="Bottom" FontSize="16" Padding="5,5,5,5" RenderTransformOrigin="2.087,1.796" Grid.ColumnSpan="2"/>
         <Label x:Name="lbJam" Content="Label" HorizontalAlignment="Right" Margin="0,0,30,347" RenderTransformOrigin="0.682,1.594" Height="26" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

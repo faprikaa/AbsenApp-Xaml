@@ -8,7 +8,7 @@
         Title="AbsenWindow" Height="450" Width="800">
     <Grid Background="White">
         <DataGrid x:Name="dgAbsen" AutoGenerateColumns="False" Margin="0,0,400,4"
-CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False"
+                    CanUserResizeColumns="True" CanUserSortColumns="True" CanUserAddRows="False"
                   SelectionMode="Single" RowHeight="25"
 >
             <DataGrid.Columns>
