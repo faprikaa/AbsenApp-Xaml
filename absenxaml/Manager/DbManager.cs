@@ -17,7 +17,6 @@ namespace AbsenMVC.Model
         public static MongoClient client;
         public static IMongoDatabase db;
 
-
         static DbManager()
         {
             client = new MongoClient();
@@ -29,8 +28,6 @@ namespace AbsenMVC.Model
                 db = client.GetDatabase("absen");
                 DeleteAllDocument(true);
             }
-            //DeleteAllDocument(true);
-
 
         }
 

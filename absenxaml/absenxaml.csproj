@@ -282,6 +282,11 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
+    <None Include="FileJson\absen.absensi.json" />
+    <None Include="FileJson\absen.matkul.json" />
+    <None Include="FileJson\absen.matkul_user.json" />
+    <None Include="FileJson\absen.user.json" />
+    <None Include="FileJson\absen.user2.json" />
     <None Include="libmongocrypt.dylib" />
     <None Include="libmongocrypt.so" />
     <None Include="packages.config" />
